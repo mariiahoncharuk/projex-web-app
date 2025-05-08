@@ -1,0 +1,78 @@
+/* Dashboard Layout */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: sans-serif;
+  background-color: #f4f4f9;
+  overflow: hidden;
+}
+
+/* Fixed Header */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  font-size: 20px;
+  font-weight: bold;
+  height: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Menu Button in Header */
+.menu-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  margin-right: 15px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Main Content Layout (below header) */
+.dashboard-content {
+  display: flex;
+  height: calc(100vh - 60px); /* Full height minus header */
+  margin-top: 60px; /* Pushes content below the header */
+  overflow: hidden;
+}
+
+/* Tasks Section (Left) */
+.tasks-section {
+  flex: 2;
+  background-color: #ffffff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+}
+
+/* Chat Section (Right) */
+.chat-section {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Responsive (Single Column on Small Screens) */
+@media (max-width: 768px) {
+  .dashboard-content {
+    flex-direction: column;
+  }
+
+  .tasks-section,
+  .chat-section {
+    width: 100%;
+    padding: 10px;
+    border-right: none;
+  }
+}
