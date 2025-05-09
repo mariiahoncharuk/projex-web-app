@@ -1,78 +1,99 @@
-/* Dashboard Layout */
+/* src/pages/WorkerDashboard.css */
+
 .dashboard {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  font-family: sans-serif;
-  background-color: #f4f4f9;
+}
+
+/* Header Styles */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #f3f4f6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.project-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Content Container (Strict 2:1 Ratio) */
+.content-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  height: calc(100vh - 60px);
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   overflow: hidden;
 }
 
-/* Fixed Header */
-.dashboard-header {
+/* Tasks Section (Carousel Style) */
+.tasks-section {
+  background-color: #f9f9f9;
+  padding: 15px;
+  overflow-y: auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #f8f9fa;
-  font-size: 20px;
-  font-weight: bold;
-  height: 60px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 10;
+  justify-content: flex-start;
 }
 
-/* Menu Button in Header */
-.menu-btn {
+/* Task Navigation (Arrows at the top) */
+.task-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 15px;
+  margin-bottom: 10px;
+}
+
+.task-navigation h3 {
+  text-align: center;
+  flex-grow: 1;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.task-navigation button {
   background: none;
   border: none;
   font-size: 24px;
-  margin-right: 15px;
   cursor: pointer;
-  color: #333;
+  padding: 5px;
+  transition: background 0.2s;
 }
 
-/* Main Content Layout (below header) */
-.dashboard-content {
-  display: flex;
-  height: calc(100vh - 60px); /* Full height minus header */
-  margin-top: 60px; /* Pushes content below the header */
-  overflow: hidden;
+.task-navigation button:hover {
+  background: #e2e8f0;
+  border-radius: 50%;
 }
 
-/* Tasks Section (Left) */
-.tasks-section {
-  flex: 2;
-  background-color: #ffffff;
-  padding: 20px;
+/* Task Column */
+.task-column {
+  width: 100%;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-  border-right: 1px solid #ddd;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Chat Section (Right) */
+/* Chat Section (1/3 of width) */
 .chat-section {
-  flex: 1;
-  background-color: #ffffff;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
+  background-color: #e2e8f0;
+  padding: 15px;
   overflow-y: auto;
-}
-
-/* Responsive (Single Column on Small Screens) */
-@media (max-width: 768px) {
-  .dashboard-content {
-    flex-direction: column;
-  }
-
-  .tasks-section,
-  .chat-section {
-    width: 100%;
-    padding: 10px;
-    border-right: none;
-  }
+  border-left: 1px solid #d1d5db;
 }
